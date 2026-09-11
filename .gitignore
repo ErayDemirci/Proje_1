@@ -1,0 +1,29 @@
+# PyCharm IDE Yapılandırma Dosyaları
+.idea/
+
+# Python Tarafından Üretilen Geçici/Derlenmiş Dosyalar
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Sanal Ortamlar (Virtual Environments)
+venv/
+env/
+ENV/
+.venv/
+
+# Hassas Bilgiler ve Ortam Değişkenleri
+.env
+*.pem
+*.key
+
+# Ortam / Paket Yöneticisi Çıktıları
+.pip-cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# İşletim Sistemi Sistem Dosyaları
+.DS_Store
+Thumbs.db

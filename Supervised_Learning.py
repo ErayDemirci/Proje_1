@@ -30,6 +30,12 @@ Kullanılan Algoritma:
     
 Kurulum:
     pip install numpy scikit-learn
+    python -c "import numpy; import sklearn; print('Kurulum başarılı')"
+    
+    python -m pip install -r requirements.txt
+    
+    -m → module
+    -c → command
 """
 
 import numpy as np
@@ -73,6 +79,55 @@ def main():
     print("\ny - Label(Etiketler)")
     print(y)
 
+    # Model Oluşturma
+    """
+    LogisticRegression bir sınıflandırma algoritmasıdır.
+    İki tane sınıf vardı. (0 -> Kaldı, 1 -> Geçti)
+    LogisticRegression, iki veya daha fazla sınıfın hangisine ait oluduğunu tahmin etmek için kullanılan sınıfın 
+    algoritmasıdır.
+    """
+
+    model = LogisticRegression()
+
+    # Model Eğitimi
+    # Model hem özellikleri hem de doğru cevapları görsün
+    # Bu ilişkide çalışma saati + katılım oranı -> Geçti/Kaldı
+
+    model.fit(X, y)
+
+    # Instance
+    # Örnek: Öğrenci 6 saat çalışıyor, derse katılım %80
+
+    new_student = np.array([[6, 80]])
+
+    # Tahmin
+    prediction = model.predict(new_student)[0]
+
+    # Tahmin Olasılıkları
+    probabilities = model.predict_proba(new_student)[0]
+
+    print("\nYeni Öğrenci")
+    print("Çalışma Saati: 6 saat")
+    print("Derse Katılım: %80")
+
+    print("\nModel Tahmini:", prediction)
+
+    # Conditional
+    if prediction == 1:
+        print("Sonuç: Öğrencinin GEÇMESİ bekleniyor.")
+    else:
+        print("Sonuç: Öğrencinin KALMASI bekleniyor.")
+
+    print("\nOlasılıklar:")
+    print(f"Kalma Olasılığı: %{probabilities[0] * 100:.2f}")
+    print(f"Geçme Olasılığı: %{probabilities[1] * 100:.2f}")
+
+    # --- ÖZET ---
+    print("\nÖZET")
+    print("Supervised Learning LABEL vardır.")
+    print("UNUTMA: Model, geçmişteki doğru cevapları öğrenir")
+    print("Bu örnekte label: 0 = Kaldı, 1 = Geçti")
 
 
-
+if __name__ == "__main__":
+    main()
