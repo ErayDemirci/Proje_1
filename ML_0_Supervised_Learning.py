@@ -43,6 +43,9 @@ from sklearn.linear_model import LogisticRegression
 
 def main():
     # X(Features/Özellikler)
+    # Bir öğrencinin:
+    # 1 = Günlük çalışma saati
+    # 30 = Derse katılım yüzdesi
     X = np.array([
         [1, 30],
         [2, 40],
